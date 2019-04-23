@@ -217,6 +217,16 @@ class GetFavoriteGenre(AbstractRequestHandler):
         
         return handler_input.response_builder.response
 
+class PlayHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("Play")(handler_input)
+
+    def handle(self, handler_input):
+        stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
+        request = handler_input.request_envelope.request
+        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+
 class GetFavoriteAlbum(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
@@ -402,6 +412,7 @@ sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(FallbackIntentHandler())
 sb.add_request_handler(ExitIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
+sb.add_request_handler(PlayHandler())
 
 # Add exception handler to the skill.
 sb.add_exception_handler(CatchAllExceptionHandler())
