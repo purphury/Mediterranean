@@ -55,6 +55,20 @@ def get_all_stations():
     )
     return requests.get(url, headers=headers, params=params).json()
 
+def get_market_id(city):
+    url='http://us-qa.api.iheart.com/api/v2/content/markets'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('city', city),
+        ('limit', '1'),
+        ('offset', '0'),
+        ('useIP', 'false')
+    )
+    marketJSON = requests.get(url, headers=headers, params=params).json()
+    marketId = marketJSON['hits'][0]['markets'][0]['marketId']
+    logger.info(f'{marketId}')
+    return marketId
+
 
 def get_locational_stations(city):
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -63,7 +77,7 @@ def get_locational_stations(city):
         ('allMarkets', 'false'),
         ('limit', '-1'),
         ('offset', '0'),
-        ('city', city),
+        ('marketId', get_market_id(city))
     )
     return requests.get(url, headers=headers, params=params).json()
 
@@ -240,10 +254,11 @@ class GetLocalStationsByCity(AbstractRequestHandler):
     def handle(self, handler_input):
         city = util.get_resolved_value(
             handler_input.request_envelope.request, "city")
+        
         stations = get_locational_stations(city)
         speech = f"Here are {min(3, len(stations))} stations in {city}: "
         for station in stations[:min(3, len(stations)+1)]:
-            speech += stations['hits'][0]['pronouncements'][0]['utterance']
+            speech += station['hits'][0]['pronouncements'][0]['utterance']
 
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
