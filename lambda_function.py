@@ -103,7 +103,7 @@ def load_station_dicts(a):
 
 
 profile_id = '1050508256'
-session_id = 'PyCG4UtzgjhZSBnAa2ezYM'
+session_id = '2QEdWamz1a7gLQ6cXMftBk'
 
 history = requests.get(
     'https://us.api.iheart.com/api/v1/history/' + profile_id +
