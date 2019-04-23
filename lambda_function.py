@@ -7,25 +7,26 @@
 # handle YES/NO intents with session attributes,
 # and return text data on a card.
 
-import logging
 import gettext
-from ask_sdk_core.skill_builder import SkillBuilder
-from ask_sdk_core.handler_input import HandlerInput
+import logging
+
+import requests
+from alexa import util
 from ask_sdk_core.dispatch_components import (
     AbstractRequestHandler, AbstractExceptionHandler,
     AbstractRequestInterceptor)
+from ask_sdk_core.handler_input import HandlerInput
+from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.utils import is_intent_name, is_request_type
-import requests
 from ask_sdk_model import Response
 from ask_sdk_model.ui import SimpleCard
-
-from alexa import util
 
 # Skill Builder object
 sb = SkillBuilder()
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
 
 def name_from_id(track_id):
     url = 'http://us-qa.api.iheart.com/api/v1/catalog/getTrackByTrackId'
@@ -55,19 +56,6 @@ def get_all_stations():
     )
     return requests.get(url, headers=headers, params=params).json()
 
-def get_market_id(city):
-    url='http://us-qa.api.iheart.com/api/v2/content/markets'
-    headers = {'Accept': 'application/json'}
-    params = (
-        ('city', city),
-        ('limit', '1'),
-        ('offset', '0'),
-        ('useIP', 'false')
-    )
-    marketJSON = requests.get(url, headers=headers, params=params).json()
-    marketId = marketJSON['hits'][0]['marketId']
-    logger.info(f'{marketId}')
-    return marketId
 
 def get_locational_stations(city):
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -76,7 +64,7 @@ def get_locational_stations(city):
         ('allMarkets', 'false'),
         ('limit', '-1'),
         ('offset', '0'),
-        ('marketId', get_market_id(city))
+        ('city', city),
     )
     return requests.get(url, headers=headers, params=params).json()
 
@@ -113,44 +101,58 @@ def load_station_dicts(a):
 
     return station_urls, station_names, station_descs, i
 
+
 profile_id = '1050508256'
 session_id = '2QEdWamz1a7gLQ6cXMftBk'
 
 history = requests.get(
     'https://us.api.iheart.com/api/v1/history/' + profile_id +
     '/getAll?campaignId=foryou_favorites&numResults=100&profileId=' +
-    profile_id + '&sessionId=' + session_id
-    ).json()['events']
+    profile_id + '&sessionId=' + session_id).json()['events']
 recent = history[0]['events'][0]['title']
 y = [x['events'] for x in history]
 favorites = [item for sublist in y for item in sublist]
 
+
 def recentSong():
     return recent
+
+
 def favGenre():
     genres = [f['albumId'] for f in favorites]
     return genre_from_album(max(set(genres), key=genres.count))
+
 
 def favSong():
     songs = [f['songId'] for f in favorites]
     return name_from_id(max(set(songs), key=songs.count))
 
+
 def favArtist():
     artists = [f['artistName'] for f in favorites]
     return max(set(artists), key=artists.count)
+
 
 def favAlbum():
     albums = [f['album'] for f in favorites]
     return max(set(albums), key=albums.count)
 
 
-
-
-
-
 # Request Handler classes
+
+class PlayHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return (is_intent_name("Play")(handler_input))
+
+    def handle(self, handler_input):
+        stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
+        return util.play(stream)
+
+
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for skill launch."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return is_request_type("LaunchRequest")(handler_input)
@@ -168,9 +170,11 @@ class LaunchRequestHandler(AbstractRequestHandler):
             "What can iheart do for you?"))
         return handler_input.response_builder.response
 
+
 # Gets some local stations
 class GetListOfLocalStations(AbstractRequestHandler):
     """Handler for Skill Launch and GetNewFact Intent."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return (is_intent_name("GetLocalStation")(handler_input))
@@ -184,16 +188,13 @@ class GetListOfLocalStations(AbstractRequestHandler):
         speech = f"Here are {min(3, len(stations))} of the local stations around you: "
         logger.info(type(stations))
         logger.info(stations['hits'][0]['pronouncements'][0])
-        
-        for hitList in range(min(len(stations['hits']), 3)):
-            try:
-                speech += stations['hits'][hitList]['pronouncements'][0]['utterance'] + ', '
-            except:
-                speech += stations['hits'][hitList]['name'] + ', '
+        for station in stations[:min(3, len(stations) + 1)]:
+            speech += stations['hits'][0]['pronouncements'][0]['utterance']
 
         handler_input.response_builder.speak(speech).set_card(
             SimpleCard("Local Station", speech))
         return handler_input.response_builder.response
+
 
 class GetRecentSong(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -206,6 +207,7 @@ class GetRecentSong(AbstractRequestHandler):
 
         return handler_input.response_builder.response
 
+
 class GetFavoriteGenre(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
@@ -214,8 +216,9 @@ class GetFavoriteGenre(AbstractRequestHandler):
     def handle(self, handler_input):
         speech = "Here is your favorite genre: "
         handler_input.response_builder.speak(speech + favGenre())
-        
+
         return handler_input.response_builder.response
+
 
 class GetFavoriteAlbum(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -225,8 +228,9 @@ class GetFavoriteAlbum(AbstractRequestHandler):
     def handle(self, handler_input):
         speech = "Here is your favorite album: "
         handler_input.response_builder.speak(speech + favAlbum())
-        
+
         return handler_input.response_builder.response
+
 
 class GetFavoriteSong(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -236,8 +240,9 @@ class GetFavoriteSong(AbstractRequestHandler):
     def handle(self, handler_input):
         speech = "Here is your favorite song: "
         handler_input.response_builder.speak(speech + favSong())
-        
+
         return handler_input.response_builder.response
+
 
 class GetFavoriteArtist(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -247,8 +252,9 @@ class GetFavoriteArtist(AbstractRequestHandler):
     def handle(self, handler_input):
         speech = "Here is your favorite artist: "
         handler_input.response_builder.speak(speech + favArtist())
-        
+
         return handler_input.response_builder.response
+
 
 class GetLocalStationsByCity(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -258,27 +264,18 @@ class GetLocalStationsByCity(AbstractRequestHandler):
     def handle(self, handler_input):
         city = util.get_resolved_value(
             handler_input.request_envelope.request, "city")
-        
         stations = get_locational_stations(city)
-        logger.info(stations)
         speech = f"Here are {min(3, len(stations))} stations in {city}: "
-        
-        logger.info(min(len(stations['hits']), 3))
-
-        for hitList in range(min(len(stations['hits']), 3)):
-            try:
-                speech += stations['hits'][hitList]['pronouncements'][0]['utterance'] + ', '
-            except:
-                speech += stations['hits'][hitList]['name'] + ', '
-            
-
-        
+        for station in stations[:min(3, len(stations) + 1)]:
+            speech += stations['hits'][0]['pronouncements'][0]['utterance']
 
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
 
+
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return is_request_type("SessionEndedRequest")(handler_input)
@@ -293,6 +290,7 @@ class SessionEndedRequestHandler(AbstractRequestHandler):
 
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for help intent."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return is_intent_name("AMAZON.HelpIntent")(handler_input)
@@ -309,6 +307,7 @@ class HelpIntentHandler(AbstractRequestHandler):
 
 class ExitIntentHandler(AbstractRequestHandler):
     """Single Handler for Cancel, Stop intents."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return (is_intent_name("AMAZON.CancelIntent")(handler_input) or
@@ -331,13 +330,14 @@ class FallbackIntentHandler(AbstractRequestHandler):
      2018-May-01: AMAZON.FallackIntent is only currently available in
      en-US locale. This handler will not be triggered except in that
      locale, so it can be safely deployed for any locale."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         session_attr = handler_input.attributes_manager.session_attributes
         return (is_intent_name("AMAZON.FallbackIntent")(handler_input) or
                 ("restaurant" not in session_attr and (
-                    is_intent_name("AMAZON.YesIntent")(handler_input) or
-                    is_intent_name("AMAZON.NoIntent")(handler_input))
+                        is_intent_name("AMAZON.YesIntent")(handler_input) or
+                        is_intent_name("AMAZON.NoIntent")(handler_input))
                  ))
 
     def handle(self, handler_input):
@@ -358,6 +358,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
     This handler catches all kinds of exceptions and prints
     the stack trace on AWS Cloudwatch with the request envelope."""
+
     def can_handle(self, handler_input, exception):
         # type: (HandlerInput, Exception) -> bool
         return True
@@ -376,6 +377,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
 class LocalizationInterceptor(AbstractRequestInterceptor):
     """Add function to request attributes, that can load locale specific data."""
+
     def process(self, handler_input):
         # type: (HandlerInput) -> None
         locale = handler_input.request_envelope.request.locale
@@ -387,7 +389,7 @@ class LocalizationInterceptor(AbstractRequestInterceptor):
 
 
 # Set the skill id [Not needed (maybe)]
-#sb.skill_id = "amzn1.ask.skill.630a7f58-595f-4083-9393-3b20117e1647"
+# sb.skill_id = "amzn1.ask.skill.630a7f58-595f-4083-9393-3b20117e1647"
 
 # Add all request handlers to the skill.
 sb.add_request_handler(LaunchRequestHandler())
