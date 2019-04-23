@@ -135,6 +135,16 @@ def favAlbum():
 
 
 # Request Handler classes
+
+class PlayHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return (is_intent_name("Play")(handler_input))
+
+    def handle(self, handler_input):
+        stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
+        return util.play(stream)
+
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for skill launch."""
     def can_handle(self, handler_input):

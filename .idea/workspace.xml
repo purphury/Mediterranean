@@ -1,7 +1,292 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6c1af953-82e3-4868-919c-ed3f4f953967" name="Default Changelist" comment="" />
+    <list default="true" id="6c1af953-82e3-4868-919c-ed3f4f953967" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Babel-2.6.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/Babel-2.6.0.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alexa/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/alexa/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model-1.10.0.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model-1.10.0.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model-1.10.0.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model-1.10.0.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model-1.10.0.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/__version__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/__version__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/canfulfill/can_fulfill_intent.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/canfulfill/can_fulfill_intent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/canfulfill/can_fulfill_intent_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/canfulfill/can_fulfill_intent_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/canfulfill/can_fulfill_slot.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/canfulfill/can_fulfill_slot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/context.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/context.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/device.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/device.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/dialog/confirm_intent_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/dialog/confirm_intent_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/dialog/confirm_slot_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/dialog/confirm_slot_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/dialog/delegate_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/dialog/delegate_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/dialog/dynamic_entities_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/dialog/dynamic_entities_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/dialog/elicit_slot_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/dialog/elicit_slot_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/er/dynamic/entity.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/er/dynamic/entity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/er/dynamic/entity_list_item.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/er/dynamic/entity_list_item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/er/dynamic/entity_value_and_synonyms.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/er/dynamic/entity_value_and_synonyms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/account_linked_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/account_linked_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/account_linked_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/account_linked_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission_accepted_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission_accepted_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission_changed_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/permission_changed_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/proactive_subscription_changed_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/proactive_subscription_changed_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/proactive_subscription_changed_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/proactive_subscription_changed_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/proactive_subscription_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/proactive_subscription_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/skill_disabled_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/skill_disabled_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/skill_enabled_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/events/skillevents/skill_enabled_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/intent.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/intent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/intent_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/intent_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/alexa_presentation_apl_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/alexa_presentation_apl_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/auto_page_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/auto_page_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/control_media_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/control_media_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/execute_commands_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/execute_commands_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/idle_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/idle_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/parallel_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/parallel_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/play_media_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/play_media_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/render_document_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/render_document_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/runtime.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/runtime.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/scroll_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/scroll_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/scroll_to_index_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/scroll_to_index_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/send_event_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/send_event_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/sequential_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/sequential_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/set_page_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/set_page_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/set_state_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/set_state_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/speak_item_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/speak_item_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/speak_list_command.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/speak_list_command.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/user_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/user_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/video_source.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/alexa/presentation/apl/video_source.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/authorize_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/authorize_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/base_amazon_pay_entity.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/base_amazon_pay_entity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/billing_agreement_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/billing_agreement_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/price.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/price.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/provider_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/provider_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/provider_credit.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/provider_credit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/seller_billing_agreement_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/seller_billing_agreement_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/seller_order_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/request/seller_order_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/authorization_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/authorization_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/authorization_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/authorization_status.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/billing_agreement_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/billing_agreement_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/destination.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/destination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/price.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/response/price.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/authorization_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/authorization_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/authorization_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/authorization_status.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/authorize_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/authorize_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/billing_agreement_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/billing_agreement_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/billing_agreement_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/billing_agreement_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/destination.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/destination.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/price.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/price.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/provider_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/provider_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/provider_credit.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/provider_credit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/seller_billing_agreement_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/seller_billing_agreement_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/seller_order_attributes.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/model/v1/seller_order_attributes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/request/charge_amazon_pay_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/request/charge_amazon_pay_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/request/setup_amazon_pay_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/request/setup_amazon_pay_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/response/amazon_pay_error_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/response/amazon_pay_error_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/response/charge_amazon_pay_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/response/charge_amazon_pay_result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/response/setup_amazon_pay_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/response/setup_amazon_pay_result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/amazon_pay_error_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/amazon_pay_error_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/charge_amazon_pay.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/charge_amazon_pay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/charge_amazon_pay_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/charge_amazon_pay_result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/setup_amazon_pay.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/setup_amazon_pay.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/setup_amazon_pay_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/amazonpay/v1/setup_amazon_pay_result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_item.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_item_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_item_metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_player_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_player_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_player_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/audio_player_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/clear_queue_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/clear_queue_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/current_playback_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/current_playback_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/play_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/play_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_failed_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_failed_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_finished_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_finished_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_nearly_finished_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_nearly_finished_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_started_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_started_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_stopped_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/playback_stopped_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/stop_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/stop_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/stream.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/audioplayer/stream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/automotive/automotive_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/automotive/automotive_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/connections_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/connections_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/connections_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/connections_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/connections_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/connections_status.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/entities/base_entity.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/entities/base_entity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/entities/postal_address.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/entities/postal_address.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/entities/restaurant.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/entities/restaurant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/base_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/base_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/print_image_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/print_image_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/print_pdf_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/print_pdf_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/print_web_page_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/print_web_page_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/schedule_food_establishment_reservation_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/schedule_food_establishment_reservation_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/schedule_taxi_reservation_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/requests/schedule_taxi_reservation_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/send_request_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/send_request_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/send_response_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/connections/send_response_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template1.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template2.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template3.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template6.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template7.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/body_template7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/display_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/display_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/display_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/display_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/element_selected_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/element_selected_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/hint.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/hint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/hint_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/hint_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/image_instance.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/image_instance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/list_item.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/list_item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/list_template1.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/list_template1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/list_template2.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/list_template2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/plain_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/plain_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/plain_text_hint.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/plain_text_hint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/render_template_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/render_template_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/rich_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/rich_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/template.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/template.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/text_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/text_content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/text_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/display/text_field.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/gadget_controller/set_light_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/gadget_controller/set_light_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/game_engine/input_handler_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/game_engine/input_handler_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/game_engine/start_input_handler_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/game_engine/start_input_handler_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/game_engine/stop_input_handler_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/game_engine/stop_input_handler_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/altitude.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/altitude.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/coordinate.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/coordinate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/geolocation_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/geolocation_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/geolocation_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/geolocation_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/heading.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/heading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/location_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/location_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/speed.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/geolocation/speed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/messaging/message_received_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/messaging/message_received_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/monetization/v1/in_skill_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/monetization/v1/in_skill_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/next_command_issued_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/next_command_issued_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/pause_command_issued_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/pause_command_issued_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/play_command_issued_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/play_command_issued_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/previous_command_issued_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/playbackcontroller/previous_command_issued_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/error_cause.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/error_cause.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/exception_encountered_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/exception_encountered_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/system_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/system/system_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/launch_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/launch_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/video_app_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/video_app_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/video_item.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/videoapp/video_item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/viewport/experience.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/viewport/experience.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/interfaces/viewport/viewport_state.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/interfaces/viewport/viewport_state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/launch_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/launch_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/request_envelope.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/request_envelope.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/response_envelope.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/response_envelope.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/scope.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/scope.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/device_address/address.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/device_address/address.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/device_address/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/device_address/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/device_address/short_address.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/device_address/short_address.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/directive/directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/directive/directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/directive/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/directive/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/directive/header.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/directive/header.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/directive/send_directive_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/directive/send_directive_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/directive/speak_directive.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/directive/speak_directive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/gadget_controller/animation_step.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/gadget_controller/animation_step.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/gadget_controller/light_animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/gadget_controller/light_animation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/gadget_controller/set_light_parameters.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/gadget_controller/set_light_parameters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/deviation_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/deviation_recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/input_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/input_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/input_handler_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/input_handler_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/pattern.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/pattern.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/pattern_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/pattern_recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/progress_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/progress_recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/game_engine/recognizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_list.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_list_item.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_list_item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_list_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_list_metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_lists_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/alexa_lists_metadata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/create_list_item_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/create_list_item_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/create_list_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/create_list_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/forbidden_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/forbidden_error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/links.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/links.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_created_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_created_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_deleted_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_deleted_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_item_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_item_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_items_created_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_items_created_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_items_deleted_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_items_deleted_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_items_updated_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_items_updated_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_updated_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/list_updated_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/status.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/status.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/update_list_item_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/update_list_item_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/list_management/update_list_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/list_management/update_list_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/monetization/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/monetization/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/monetization/in_skill_product.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/monetization/in_skill_product.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/monetization/in_skill_products_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/monetization/in_skill_products_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/create_proactive_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/create_proactive_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/relevant_audience.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/proactive_events/relevant_audience.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/alert_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/alert_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/alert_info_spoken_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/alert_info_spoken_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/get_reminder_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/get_reminder_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/get_reminders_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/get_reminders_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/push_notification.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/push_notification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/recurrence.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/recurrence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_created_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_created_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_deleted_event.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_deleted_event.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_deleted_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_deleted_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_started_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_started_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_status_changed_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_status_changed_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_updated_event_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/reminder_updated_event_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/spoken_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/spoken_text.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/trigger.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/reminder_management/trigger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/skill_messaging/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/skill_messaging/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/skill_messaging/send_skill_messaging_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/skill_messaging/send_skill_messaging_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/ups/error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/ups/error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/services/ups/phone_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/services/ups/phone_number.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/session.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/session_ended_error.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/session_ended_error.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/session_ended_request.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/session_ended_request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/slot.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/slot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/resolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/resolution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/resolutions.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/resolutions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/status.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/status.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/value.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/value.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/value_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/slu/entityresolution/value_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/supported_interfaces.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/supported_interfaces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/ask_for_permissions_consent_card.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/ask_for_permissions_consent_card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/card.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/image.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/link_account_card.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/link_account_card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/output_speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/output_speech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/plain_text_output_speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/plain_text_output_speech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/reprompt.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/reprompt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/simple_card.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/simple_card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/ssml_output_speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/ssml_output_speech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/ui/standard_card.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/ui/standard_card.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ask_sdk_model/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/ask_sdk_model/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/f2py.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chardet-3.0.4.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/chardet-3.0.4.dist-info/RECORD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lambda_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/lambda_function.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/base.pot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en-GB/LC_MESSAGES/base.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/locales/en-GB/LC_MESSAGES/base.po" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3-1.24.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3-1.24.1.dist-info/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3-1.24.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3-1.24.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3-1.24.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3-1.24.1.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/urllib3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3/contrib/pyopenssl.py" beforeDir="false" afterPath="$PROJECT_DIR$/urllib3/contrib/pyopenssl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3/poolmanager.py" beforeDir="false" afterPath="$PROJECT_DIR$/urllib3/poolmanager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3/util/retry.py" beforeDir="false" afterPath="$PROJECT_DIR$/urllib3/util/retry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/urllib3/util/ssl_.py" beforeDir="false" afterPath="$PROJECT_DIR$/urllib3/util/ssl_.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,19 +298,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lambda_function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/heart_favorites.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="99" selection-end-column="23" />
+            <state relative-caret-position="140">
+              <caret line="137" selection-start-line="137" selection-end-line="137" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#308#322#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -37,6 +313,14 @@
     <findStrings>
       <find>get</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="music" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -62,8 +346,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="clean_build" type="b2602c69:ProjectViewProjectNode" />
-              <item name="clean_build" type="462c0819:PsiDirectoryNode" />
+              <item name="Mediterranean" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mediterranean" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -73,6 +357,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -102,17 +387,19 @@
       <updated>1555246346292</updated>
       <workItem from="1555246351229" duration="175000" />
       <workItem from="1555249509821" duration="2009000" />
+      <workItem from="1556051683701" duration="444000" />
+      <workItem from="1556057636434" duration="2016000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2184000" />
+    <option name="totallyTimeSpent" value="4644000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="100" y="44" width="1400" height="784" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2533532" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26080477" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -139,37 +426,16 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hearts_favorites.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="68" column="19" selection-start-line="68" selection-start-column="19" selection-end-line="68" selection-end-column="19" />
-          <folding>
-            <element signature="e#25#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/heart_favorites.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="99" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hearts_favorites.py" />
+    <entry file="file://$PROJECT_DIR$/util.py" />
+    <entry file="file://$PROJECT_DIR$/heart_favorites.py" />
     <entry file="file://$PROJECT_DIR$/lambda_function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="140">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+          <folding>
+            <element signature="e#308#322#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
