@@ -170,7 +170,7 @@ class GetListOfLocalStations(AbstractRequestHandler):
         stations = get_local_stations()
         logger.info(type(stations))
         logger.info(stations['hits'][0]['pronouncements'][0])
-        for station in stations[:4]:
+        for station in stations[:min(3, len(stations)+1)]:
             speech += stations['hits'][0]['pronouncements'][0]['utterance']
 
         handler_input.response_builder.speak(speech).set_card(
@@ -242,7 +242,7 @@ class GetLocalStationsByCity(AbstractRequestHandler):
             handler_input.request_envelope.request, "city")
         stations = get_locational_stations(city)
         speech = "Here are 3 stations in " + city + ":"
-        for station in stations:
+        for station in stations[:min(3, len(stations)+1)]:
             speech += stations['hits'][0]['pronouncements'][0]['utterance']
 
         handler_input.response_builder.speak(speech)
