@@ -65,10 +65,9 @@ def get_market_id(city):
         ('useIP', 'false')
     )
     marketJSON = requests.get(url, headers=headers, params=params).json()
-    marketId = marketJSON['hits'][0]['markets'][0]['marketId']
+    marketId = marketJSON['hits'][0]['marketId']
     logger.info(f'{marketId}')
     return marketId
-
 
 def get_locational_stations(city):
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -115,12 +114,13 @@ def load_station_dicts(a):
     return station_urls, station_names, station_descs, i
 
 profile_id = '1050508256'
-session_id = 'PyCG4UtzgjhZSBnAa2ezYM'
+session_id = '2QEdWamz1a7gLQ6cXMftBk'
 
 history = requests.get(
     'https://us.api.iheart.com/api/v1/history/' + profile_id +
     '/getAll?campaignId=foryou_favorites&numResults=100&profileId=' +
-    profile_id + '&sessionId=' + session_id).json()['events']
+    profile_id + '&sessionId=' + session_id
+    ).json()['events']
 recent = history[0]['events'][0]['title']
 y = [x['events'] for x in history]
 favorites = [item for sublist in y for item in sublist]
@@ -184,8 +184,12 @@ class GetListOfLocalStations(AbstractRequestHandler):
         speech = f"Here are {min(3, len(stations))} of the local stations around you: "
         logger.info(type(stations))
         logger.info(stations['hits'][0]['pronouncements'][0])
-        for station in stations[:min(3, len(stations)+1)]:
-            speech += stations['hits'][0]['pronouncements'][0]['utterance']
+        
+        for hitList in range(min(len(stations['hits']), 3)):
+            try:
+                speech += stations['hits'][hitList]['pronouncements'][0]['utterance'] + ', '
+            except:
+                speech += stations['hits'][hitList]['name'] + ', '
 
         handler_input.response_builder.speak(speech).set_card(
             SimpleCard("Local Station", speech))
@@ -256,9 +260,19 @@ class GetLocalStationsByCity(AbstractRequestHandler):
             handler_input.request_envelope.request, "city")
         
         stations = get_locational_stations(city)
+        logger.info(stations)
         speech = f"Here are {min(3, len(stations))} stations in {city}: "
-        for station in stations[:min(3, len(stations)+1)]:
-            speech += station['hits'][0]['pronouncements'][0]['utterance']
+        
+        logger.info(min(len(stations['hits']), 3))
+
+        for hitList in range(min(len(stations['hits']), 3)):
+            try:
+                speech += stations['hits'][hitList]['pronouncements'][0]['utterance'] + ', '
+            except:
+                speech += stations['hits'][hitList]['name'] + ', '
+            
+
+        
 
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
