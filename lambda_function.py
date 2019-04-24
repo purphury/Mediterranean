@@ -114,7 +114,7 @@ def load_station_dicts(a):
     return station_urls, station_names, station_descs, i
 
 profile_id = '1050508256'
-session_id = '2QEdWamz1a7gLQ6cXMftBk'
+session_id = '4ebCB57vbgoyB49okLtWH6'
 
 history = requests.get(
     'https://us.api.iheart.com/api/v1/history/' + profile_id +
@@ -126,6 +126,8 @@ y = [x['events'] for x in history]
 favorites = [item for sublist in y for item in sublist]
 
 def recentSong():
+    history = regenHistory()
+    recent = history[0]['events'][0]['title']
     return recent
 def favGenre():
     genres = [f['albumId'] for f in favorites]
@@ -143,7 +145,13 @@ def favAlbum():
     albums = [f['album'] for f in favorites]
     return max(set(albums), key=albums.count)
 
-
+def regenHistory():
+    history = requests.get(
+    'https://us.api.iheart.com/api/v1/history/' + profile_id +
+    '/getAll?campaignId=foryou_favorites&numResults=100&profileId=' +
+    profile_id + '&sessionId=' + session_id
+    ).json()['events']
+    return history
 
 
 
