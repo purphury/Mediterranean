@@ -9,6 +9,7 @@
 
 import logging
 import gettext
+import random
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.handler_input import HandlerInput
 from ask_sdk_core.dispatch_components import (
@@ -35,6 +36,17 @@ def name_from_id(track_id):
         ('trackId', track_id),
     )
     return requests.get(url, headers=headers, params=params).json()['track']['title']
+
+def get_rand_pop_podcasts():
+    url = 'https://leads.radioedit.iheart.com/api/cards?collection=collections/popular-podcasts&country=US'
+    headers = {'Accept': 'application/json'}
+    podcasts = requests.get(url, headers=headers, params=None).json()
+    final_podcasts = []
+
+    for x in range(3):
+        final_podcasts.append(podcasts['cards'][ random.randint(0, len(podcasts['cards']) - 1) ])
+    
+    return final_podcasts
 
 
 def log_in_user():
@@ -205,10 +217,7 @@ profile_id = '1050508256'
 session_id = 'FY3L6yEEvj34k256KDbYdJ'
 
 # Debug Calls Start
-stream = get_working_station(get_local_stations())
-stream_url = stream['streams']['secure_hls_stream']
-currently_playing = get_recent_station_track(stream['id'])
-echo_response = f"Playing {currently_playing} on {stream['pronouncements'][0]['utterance']}"
+test = get_rand_pop_podcasts()
 # Debug Calls End
 
 
