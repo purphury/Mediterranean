@@ -27,6 +27,7 @@ sb = SkillBuilder()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+
 def name_from_id(track_id):
     url = 'http://us-qa.api.iheart.com/api/v1/catalog/getTrackByTrackId'
     headers = {'Accept': 'application/json'}
@@ -36,6 +37,37 @@ def name_from_id(track_id):
     return requests.get(url, headers=headers, params=params).json()['track']['title']
 
 
+def log_in_user():
+    url = 'http://us-qa.api.iheart.com/api/v3/locationConfig'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('email', 'dannynewman@yahoo.com'),
+        ('hostname', 'webapp'),
+        ('version', '8-prod'),
+
+    )
+    return requests.get(url, headers=headers, params=params).json()
+
+def fetch_user_playlist():
+    url = 'http://us-qa.api.iheart.com/api/v2/playlists/1050508256/ARTIST/9288'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('X-Session-Id', 'dannynewman@yahoo.com'),
+        ('X-User-Id', 'webapp'),
+    )
+    return requests.get(url, headers=headers, params=params).json()
+
+
+def user_collection():
+    url = 'http://us-qa.api.iheart.com/api/v3/collection/user/1050508256/collection'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ()
+
+    )
+    return requests.get(url, headers=headers, params=params).json()
+
+
 def genre_from_album(album_id):
     url = 'http://us-qa.api.iheart.com/api/v1/catalog/getAlbumsByAlbumIds'
     headers = {'Accept': 'application/json'}
@@ -43,6 +75,7 @@ def genre_from_album(album_id):
         ('albumId', album_id),
     )
     return requests.get(url, headers=headers, params=params).json()['trackBundles'][0]['genre']
+
 
 def get_genre_id(genre_name):
     url = 'http://us-qa.api.iheart.com/api/v2/content/genre'
@@ -88,6 +121,7 @@ def get_all_stations():
     )
     return requests.get(url, headers=headers, params=params).json()
 
+
 def get_market_id(city):
     url='http://us-qa.api.iheart.com/api/v2/content/markets'
     headers = {'Accept': 'application/json'}
@@ -101,6 +135,7 @@ def get_market_id(city):
     marketId = marketJSON['hits'][0]['marketId']
     logger.info(f'{marketId}')
     return marketId
+
 
 def get_locational_stations(city):
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -146,8 +181,14 @@ def load_station_dicts(a):
 
     return station_urls, station_names, station_descs, i
 
+
 profile_id = '1050508256'
-session_id = '4ebCB57vbgoyB49okLtWH6'
+session_id = 'FY3L6yEEvj34k256KDbYdJ'
+
+# Debug Calls Start
+
+# Debug Calls End
+
 
 history = requests.get(
     'https://us.api.iheart.com/api/v1/history/' + profile_id +
