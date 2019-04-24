@@ -27,6 +27,7 @@ sb = SkillBuilder()
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
+
 def name_from_id(track_id):
     url = 'http://us-qa.api.iheart.com/api/v1/catalog/getTrackByTrackId'
     headers = {'Accept': 'application/json'}
@@ -34,6 +35,37 @@ def name_from_id(track_id):
         ('trackId', track_id),
     )
     return requests.get(url, headers=headers, params=params).json()['track']['title']
+
+
+def log_in_user():
+    url = 'http://us-qa.api.iheart.com/api/v3/locationConfig'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('email', 'dannynewman@yahoo.com'),
+        ('hostname', 'webapp'),
+        ('version', '8-prod'),
+
+    )
+    return requests.get(url, headers=headers, params=params).json()
+
+def fetch_user_playlist():
+    url = 'http://us-qa.api.iheart.com/api/v2/playlists/1050508256/ARTIST/9288'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('X-Session-Id', 'dannynewman@yahoo.com'),
+        ('X-User-Id', 'webapp'),
+    )
+    return requests.get(url, headers=headers, params=params).json()
+
+
+def user_collection():
+    url = 'http://us-qa.api.iheart.com/api/v3/collection/user/1050508256/collection'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ()
+
+    )
+    return requests.get(url, headers=headers, params=params).json()
 
 
 def genre_from_album(album_id):
@@ -45,6 +77,40 @@ def genre_from_album(album_id):
     return requests.get(url, headers=headers, params=params).json()['trackBundles'][0]['genre']
 
 
+def get_genre_id(genre_name):
+    url = 'http://us-qa.api.iheart.com/api/v2/content/genre'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('offset', '0'),
+    )
+    genres = requests.get(url, headers=headers, params=params).json()
+
+    finID = None
+
+    for ids in range(len(genres['hits'])):
+        if genre_name == genres['hits'][ids]:
+            finID = genres['hits'][ids]
+    
+    return finID
+
+def get_genre_stream(genre_id):
+    url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('genreId', genre_id),
+        ('limit', '50'),
+        ('useIP', 'false')
+    )
+    station_list = requests.get(url, headers=headers, params=params).json()
+    station_url = None
+
+    for stations in range(len(station_list['hits'])):
+        if 'secure_hls_stream' in station_list['hits'][stations]['streams']:
+            station_url = station_list['hits'][stations]['streams']['secure_hls_stream']
+    
+    return station_url
+
+
 def get_all_stations():
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
     headers = {'Accept': 'application/json'}
@@ -54,6 +120,7 @@ def get_all_stations():
         ('offset', '0'),
     )
     return requests.get(url, headers=headers, params=params).json()
+
 
 def get_market_id(city):
     url='http://us-qa.api.iheart.com/api/v2/content/markets'
@@ -68,6 +135,7 @@ def get_market_id(city):
     marketId = marketJSON['hits'][0]['marketId']
     logger.info(f'{marketId}')
     return marketId
+
 
 def get_locational_stations(city):
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -113,8 +181,14 @@ def load_station_dicts(a):
 
     return station_urls, station_names, station_descs, i
 
+
 profile_id = '1050508256'
-session_id = '2QEdWamz1a7gLQ6cXMftBk'
+session_id = 'FY3L6yEEvj34k256KDbYdJ'
+
+# Debug Calls Start
+
+# Debug Calls End
+
 
 history = requests.get(
     'https://us.api.iheart.com/api/v1/history/' + profile_id +
@@ -126,6 +200,8 @@ y = [x['events'] for x in history]
 favorites = [item for sublist in y for item in sublist]
 
 def recentSong():
+    history = regenHistory()
+    recent = history[0]['events'][0]['title']
     return recent
 def favGenre():
     genres = [f['albumId'] for f in favorites]
@@ -143,7 +219,14 @@ def favAlbum():
     albums = [f['album'] for f in favorites]
     return max(set(albums), key=albums.count)
 
-
+def regenHistory():
+    history = requests.get(
+    'https://us.api.iheart.com/api/v1/history/' + profile_id +
+    '/getAll?campaignId=foryou_favorites&numResults=100&profileId=' +
+    profile_id + '&sessionId=' + session_id
+    ).json()['events']
+    logger.info(history)
+    return history
 
 
 
@@ -217,15 +300,40 @@ class GetFavoriteGenre(AbstractRequestHandler):
         
         return handler_input.response_builder.response
 
+class PlayFavoriteGenre(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("PlayFavoriteGenre")(handler_input)
+
+    def handle(self, handler_input):
+        genreID = get_genre_id(favGenre())
+        request = handler_input.request_envelope.request
+
+        stream = get_genre_stream(genreID)
+
+        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+
 class PlayHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return is_intent_name("Play")(handler_input)
 
     def handle(self, handler_input):
+        stream = 'http://provisioning.streamtheworld.com/pls/KMZTFMAAC.pls'
+
+        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+
+class StopHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return (is_intent_name("AMAZON.CancelIntent")(handler_input) or
+                is_intent_name("AMAZON.StopIntent")(handler_input) or
+                is_intent_name("AMAZON.PauseIntent")(handler_input))
+
+    def handle(self, handler_input):
         stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
         request = handler_input.request_envelope.request
-        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+        return util.stop('Stoping audio...', handler_input.response_builder)
 
 class GetFavoriteAlbum(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -344,11 +452,7 @@ class FallbackIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         session_attr = handler_input.attributes_manager.session_attributes
-        return (is_intent_name("AMAZON.FallbackIntent")(handler_input) or
-                ("restaurant" not in session_attr and (
-                    is_intent_name("AMAZON.YesIntent")(handler_input) or
-                    is_intent_name("AMAZON.NoIntent")(handler_input))
-                 ))
+        return (is_intent_name("AMAZON.FallbackIntent")(handler_input))
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
@@ -413,6 +517,8 @@ sb.add_request_handler(FallbackIntentHandler())
 sb.add_request_handler(ExitIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
 sb.add_request_handler(PlayHandler())
+sb.add_request_handler(StopHandler())
+sb.add_request_handler(PlayFavoriteGenre())
 
 # Add exception handler to the skill.
 sb.add_exception_handler(CatchAllExceptionHandler())
