@@ -110,6 +110,24 @@ def get_genre_stream(genre_id):
     
     return station_url
 
+def get_working_station(station_list):
+    
+    for stations in range(len(station_list['hits'])):
+        if 'secure_hls_stream' in station_list['hits'][stations]['streams']:
+            working_station = station_list['hits'][stations]
+            break
+
+    return working_station
+
+def get_recent_station_track(streamId):
+
+    url = f'http://us-qa.api.iheart.com/api/v3/live-meta/stream/{streamId}/trackHistory'
+    headers = {'Accept': 'application/json'}
+    params = ()
+
+    track_id = requests.get(url, headers=headers, params=params).json()['data'][0]['trackId']
+
+    return name_from_id(track_id) 
 
 def get_all_stations():
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -154,9 +172,10 @@ def get_local_stations():
     headers = {'Accept': 'application/json'}
     params = (
         ('allMarkets', 'false'),
-        ('limit', '-1'),
+        ('limit', '20'),
         ('offset', '0'),
         ('useIP', 'true'),
+        ('sort', 'cume'),
     )
     return requests.get(url, headers=headers, params=params).json()
 
@@ -186,7 +205,10 @@ profile_id = '1050508256'
 session_id = 'FY3L6yEEvj34k256KDbYdJ'
 
 # Debug Calls Start
-
+stream = get_working_station(get_local_stations())
+stream_url = stream['streams']['secure_hls_stream']
+currently_playing = get_recent_station_track(stream['id'])
+echo_response = f"Playing {currently_playing} on {stream['pronouncements'][0]['utterance']}"
 # Debug Calls End
 
 
@@ -195,13 +217,21 @@ history = requests.get(
     '/getAll?campaignId=foryou_favorites&numResults=100&profileId=' +
     profile_id + '&sessionId=' + session_id
     ).json()['events']
-recent = history[0]['events'][0]['title']
+try:
+    recent = history[0]['events'][0]['title']
+except:
+    recent = 'No recent songs'
+
 y = [x['events'] for x in history]
 favorites = [item for sublist in y for item in sublist]
 
 def recentSong():
     history = regenHistory()
-    recent = history[0]['events'][0]['title']
+    try:
+        recent = history[0]['events'][0]['title']
+    except:
+        recent = 'No recent songs'
+
     return recent
 def favGenre():
     genres = [f['albumId'] for f in favorites]
@@ -229,8 +259,6 @@ def regenHistory():
     return history
 
 
-
-
 # Request Handler classes
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for skill launch."""
@@ -250,6 +278,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         handler_input.response_builder.ask(_(
             "What can iheart do for you?"))
         return handler_input.response_builder.response
+
 
 # Gets some local stations
 class GetListOfLocalStations(AbstractRequestHandler):
@@ -307,11 +336,10 @@ class PlayFavoriteGenre(AbstractRequestHandler):
 
     def handle(self, handler_input):
         genreID = get_genre_id(favGenre())
-        request = handler_input.request_envelope.request
-
         stream = get_genre_stream(genreID)
 
-        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+        return util.play(stream, 0, "Playing...", util.data.en['card'], handler_input.response_builder)
+
 
 class PlayHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -319,9 +347,24 @@ class PlayHandler(AbstractRequestHandler):
         return is_intent_name("Play")(handler_input)
 
     def handle(self, handler_input):
-        stream = 'http://provisioning.streamtheworld.com/pls/KMZTFMAAC.pls'
+        stream = get_working_station(get_local_stations())
+        logger.info(stream)
+        if stream == None:
+            handler_input.response_builder.speak("Could not find a live station")
+            logger.info("STREAM IS NONE")
+            return handler_input.response_builder.response
 
-        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+        stream_url = stream['streams']['secure_hls_stream']
+        try:
+            currently_playing = get_recent_station_track(stream['id'])
+            logger.info(f"{currently_playing} | {stream['id']}")
+            echo_response = f"Now playing {currently_playing} on {stream['pronouncements'][0]['utterance']}"
+        except:
+            echo_response = f"Now playing {stream['pronouncements'][0]['utterance']}"
+            logger.info(f"In exception | {stream['id']}")
+
+        return util.play(stream_url, 0, echo_response, util.data.en['card'], handler_input.response_builder)
+
 
 class StopHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -331,9 +374,9 @@ class StopHandler(AbstractRequestHandler):
                 is_intent_name("AMAZON.PauseIntent")(handler_input))
 
     def handle(self, handler_input):
-        stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
-        request = handler_input.request_envelope.request
+        
         return util.stop('Stoping audio...', handler_input.response_builder)
+
 
 class GetFavoriteAlbum(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -388,12 +431,10 @@ class GetLocalStationsByCity(AbstractRequestHandler):
                 speech += stations['hits'][hitList]['pronouncements'][0]['utterance'] + ', '
             except:
                 speech += stations['hits'][hitList]['name'] + ', '
-            
-
-        
 
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
+
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
