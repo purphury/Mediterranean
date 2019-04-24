@@ -110,6 +110,25 @@ def get_genre_stream(genre_id):
     
     return station_url
 
+def get_working_station(station_list):
+    
+    for stations in range(len(station_list['hits'])):
+        if 'secure_hls_stream' in station_list['hits'][stations]['streams']:
+            working_station = station_list['hits'][stations]
+            break
+            # station_url = station_list['hits'][stations]['streams']['secure_hls_stream']
+
+    return working_station
+
+def get_recent_station_track(streamId):
+
+    url = f'http://us-qa.api.iheart.com/api/v3/live-meta/stream/{streamId}/trackHistory'
+    headers = {'Accept': 'application/json'}
+    params = ()
+
+    track_id = requests.get(url, headers=headers, params=params).json()['data'][0]['trackId']
+
+    return name_from_id(track_id) 
 
 def get_all_stations():
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -157,6 +176,7 @@ def get_local_stations():
         ('limit', '-1'),
         ('offset', '0'),
         ('useIP', 'true'),
+        ('sort', 'cume'),
     )
     return requests.get(url, headers=headers, params=params).json()
 
@@ -186,7 +206,11 @@ profile_id = '1050508256'
 session_id = 'FY3L6yEEvj34k256KDbYdJ'
 
 # Debug Calls Start
-
+# streams = get_local_stations()
+# stream = get_working_station(streams)
+# stream_url = stream['streams']['secure_hls_stream']
+# currently_playing = get_recent_station_track(stream['id'])
+# station_name = stream['pronouncements'][0]['utterance']
 # Debug Calls End
 
 
@@ -195,13 +219,21 @@ history = requests.get(
     '/getAll?campaignId=foryou_favorites&numResults=100&profileId=' +
     profile_id + '&sessionId=' + session_id
     ).json()['events']
-recent = history[0]['events'][0]['title']
+try:
+    recent = history[0]['events'][0]['title']
+except:
+    recent = 'No recent songs'
+
 y = [x['events'] for x in history]
 favorites = [item for sublist in y for item in sublist]
 
 def recentSong():
     history = regenHistory()
-    recent = history[0]['events'][0]['title']
+    try:
+        recent = history[0]['events'][0]['title']
+    except:
+        recent = 'No recent songs'
+
     return recent
 def favGenre():
     genres = [f['albumId'] for f in favorites]
@@ -313,6 +345,7 @@ class PlayFavoriteGenre(AbstractRequestHandler):
 
         return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
 
+
 # TODO Make PlayHandler play most popular local or recent station
 class PlayHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -320,9 +353,16 @@ class PlayHandler(AbstractRequestHandler):
         return is_intent_name("Play")(handler_input)
 
     def handle(self, handler_input):
-        stream = 'http://provisioning.streamtheworld.com/pls/KMZTFMAAC.pls'
+        streams = get_local_stations()
+        stream = get_working_station(streams)
+        stream_url = stream['streams']['secure_hls_stream']
+        currently_playing = get_recent_station_track(stream['id'])
+        echo_response = f"Playing {currently_playing} on {stream['pronouncements'][0]['utterance']}"
+        logger.info(echo_response)
 
-        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+        handler_input.response_builder.speak(echo_response)
+
+        return util.play(stream_url, 0, None, util.data.en['card'], handler_input.response_builder)
 
 class StopHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
