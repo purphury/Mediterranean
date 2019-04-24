@@ -227,6 +227,18 @@ class PlayHandler(AbstractRequestHandler):
         request = handler_input.request_envelope.request
         return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
 
+class StopHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return (is_intent_name("AMAZON.CancelIntent")(handler_input) or
+                is_intent_name("AMAZON.StopIntent")(handler_input) or
+                is_intent_name("AMAZON.PauseIntent")(handler_input))
+
+    def handle(self, handler_input):
+        stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
+        request = handler_input.request_envelope.request
+        return util.stop('Stoping audio...', handler_input.response_builder)
+
 class GetFavoriteAlbum(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
@@ -344,11 +356,7 @@ class FallbackIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         session_attr = handler_input.attributes_manager.session_attributes
-        return (is_intent_name("AMAZON.FallbackIntent")(handler_input) or
-                ("restaurant" not in session_attr and (
-                    is_intent_name("AMAZON.YesIntent")(handler_input) or
-                    is_intent_name("AMAZON.NoIntent")(handler_input))
-                 ))
+        return (is_intent_name("AMAZON.FallbackIntent")(handler_input)
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
@@ -413,6 +421,7 @@ sb.add_request_handler(FallbackIntentHandler())
 sb.add_request_handler(ExitIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
 sb.add_request_handler(PlayHandler())
+sb.add_request_handler(StopHandler())
 
 # Add exception handler to the skill.
 sb.add_exception_handler(CatchAllExceptionHandler())
