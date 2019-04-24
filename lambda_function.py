@@ -116,7 +116,6 @@ def get_working_station(station_list):
         if 'secure_hls_stream' in station_list['hits'][stations]['streams']:
             working_station = station_list['hits'][stations]
             break
-            # station_url = station_list['hits'][stations]['streams']['secure_hls_stream']
 
     return working_station
 
@@ -173,7 +172,7 @@ def get_local_stations():
     headers = {'Accept': 'application/json'}
     params = (
         ('allMarkets', 'false'),
-        ('limit', '-1'),
+        ('limit', '20'),
         ('offset', '0'),
         ('useIP', 'true'),
         ('sort', 'cume'),
@@ -206,11 +205,10 @@ profile_id = '1050508256'
 session_id = 'FY3L6yEEvj34k256KDbYdJ'
 
 # Debug Calls Start
-# streams = get_local_stations()
-# stream = get_working_station(streams)
-# stream_url = stream['streams']['secure_hls_stream']
-# currently_playing = get_recent_station_track(stream['id'])
-# station_name = stream['pronouncements'][0]['utterance']
+stream = get_working_station(get_local_stations())
+stream_url = stream['streams']['secure_hls_stream']
+currently_playing = get_recent_station_track(stream['id'])
+echo_response = f"Playing {currently_playing} on {stream['pronouncements'][0]['utterance']}"
 # Debug Calls End
 
 
@@ -261,8 +259,6 @@ def regenHistory():
     return history
 
 
-
-
 # Request Handler classes
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for skill launch."""
@@ -282,6 +278,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         handler_input.response_builder.ask(_(
             "What can iheart do for you?"))
         return handler_input.response_builder.response
+
 
 # Gets some local stations
 class GetListOfLocalStations(AbstractRequestHandler):
@@ -339,11 +336,9 @@ class PlayFavoriteGenre(AbstractRequestHandler):
 
     def handle(self, handler_input):
         genreID = get_genre_id(favGenre())
-        request = handler_input.request_envelope.request
-
         stream = get_genre_stream(genreID)
 
-        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+        return util.play(stream, 0, "Playing...", util.data.en['card'], handler_input.response_builder)
 
 
 # TODO Make PlayHandler play most popular local or recent station
@@ -353,16 +348,24 @@ class PlayHandler(AbstractRequestHandler):
         return is_intent_name("Play")(handler_input)
 
     def handle(self, handler_input):
-        streams = get_local_stations()
-        stream = get_working_station(streams)
+        stream = get_working_station(get_local_stations())
+        logger.info(stream)
+        if stream == None:
+            handler_input.response_builder.speak("Could not find a live station")
+            logger.info("STREAM IS NONE")
+            return handler_input.response_builder.response
+
         stream_url = stream['streams']['secure_hls_stream']
-        currently_playing = get_recent_station_track(stream['id'])
-        echo_response = f"Playing {currently_playing} on {stream['pronouncements'][0]['utterance']}"
-        logger.info(echo_response)
+        try:
+            currently_playing = get_recent_station_track(stream['id'])
+            logger.info(f"{currently_playing} | {stream['id']}")
+            echo_response = f"Now playing {currently_playing} on {stream['pronouncements'][0]['utterance']}"
+        except:
+            echo_response = f"Now playing {stream['pronouncements'][0]['utterance']}"
+            logger.info(f"In exception | {stream['id']}")
 
-        handler_input.response_builder.speak(echo_response)
+        return util.play(stream_url, 0, echo_response, util.data.en['card'], handler_input.response_builder)
 
-        return util.play(stream_url, 0, None, util.data.en['card'], handler_input.response_builder)
 
 class StopHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -373,8 +376,8 @@ class StopHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         
-        
         return util.stop('Stoping audio...', handler_input.response_builder)
+
 
 class GetFavoriteAlbum(AbstractRequestHandler):
     def can_handle(self, handler_input):
@@ -429,12 +432,10 @@ class GetLocalStationsByCity(AbstractRequestHandler):
                 speech += stations['hits'][hitList]['pronouncements'][0]['utterance'] + ', '
             except:
                 speech += stations['hits'][hitList]['name'] + ', '
-            
-
-        
 
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
+
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
