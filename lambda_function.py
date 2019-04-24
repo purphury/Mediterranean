@@ -44,6 +44,39 @@ def genre_from_album(album_id):
     )
     return requests.get(url, headers=headers, params=params).json()['trackBundles'][0]['genre']
 
+def get_genre_id(genre_name):
+    url = 'http://us-qa.api.iheart.com/api/v2/content/genre'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('offset', '0'),
+    )
+    genres = requests.get(url, headers=headers, params=params).json()
+
+    finID = None
+
+    for ids in range(len(genres['hits'])):
+        if genre_name == genres['hits'][ids]:
+            finID = genres['hits'][ids]
+    
+    return finID
+
+def get_genre_stream(genre_id):
+    url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
+    headers = {'Accept': 'application/json'}
+    params = (
+        ('genreId', genre_id),
+        ('limit', '50'),
+        ('useIP', 'false')
+    )
+    station_list = requests.get(url, headers=headers, params=params).json()
+    station_url = None
+
+    for stations in range(len(station_list['hits'])):
+        if 'secure_hls_stream' in station_list['hits'][stations]['streams']:
+            station_url = station_list['hits'][stations]['streams']['secure_hls_stream']
+    
+    return station_url
+
 
 def get_all_stations():
     url = 'http://us-qa.api.iheart.com/api/v2/content/liveStations'
@@ -151,6 +184,7 @@ def regenHistory():
     '/getAll?campaignId=foryou_favorites&numResults=100&profileId=' +
     profile_id + '&sessionId=' + session_id
     ).json()['events']
+    logger.info(history)
     return history
 
 
@@ -225,14 +259,27 @@ class GetFavoriteGenre(AbstractRequestHandler):
         
         return handler_input.response_builder.response
 
+class PlayFavoriteGenre(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return is_intent_name("PlayFavoriteGenre")(handler_input)
+
+    def handle(self, handler_input):
+        genreID = get_genre_id(favGenre())
+        request = handler_input.request_envelope.request
+
+        stream = get_genre_stream(genreID)
+
+        return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
+
 class PlayHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return is_intent_name("Play")(handler_input)
 
     def handle(self, handler_input):
-        stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
-        request = handler_input.request_envelope.request
+        stream = 'http://provisioning.streamtheworld.com/pls/KMZTFMAAC.pls'
+
         return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
 
 class StopHandler(AbstractRequestHandler):
@@ -430,6 +477,7 @@ sb.add_request_handler(ExitIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
 sb.add_request_handler(PlayHandler())
 sb.add_request_handler(StopHandler())
+sb.add_request_handler(PlayFavoriteGenre())
 
 # Add exception handler to the skill.
 sb.add_exception_handler(CatchAllExceptionHandler())
