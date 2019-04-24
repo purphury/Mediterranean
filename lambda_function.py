@@ -372,8 +372,8 @@ class StopHandler(AbstractRequestHandler):
                 is_intent_name("AMAZON.PauseIntent")(handler_input))
 
     def handle(self, handler_input):
-        stream = 'https://c2.prod.playlists.ihrhls.com/6639/playlist.m3u8'
-        request = handler_input.request_envelope.request
+        
+        
         return util.stop('Stoping audio...', handler_input.response_builder)
 
 class GetFavoriteAlbum(AbstractRequestHandler):
