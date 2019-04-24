@@ -313,6 +313,7 @@ class PlayFavoriteGenre(AbstractRequestHandler):
 
         return util.play(stream, 0, None, util.data.en['card'], handler_input.response_builder)
 
+# TODO Make PlayHandler play most popular local or recent station
 class PlayHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
