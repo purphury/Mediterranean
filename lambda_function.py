@@ -356,7 +356,7 @@ class FallbackIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         session_attr = handler_input.attributes_manager.session_attributes
-        return (is_intent_name("AMAZON.FallbackIntent")(handler_input)
+        return (is_intent_name("AMAZON.FallbackIntent")(handler_input))
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
