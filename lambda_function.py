@@ -214,10 +214,10 @@ def load_station_dicts(a):
 
 
 profile_id = '1050508256'
-session_id = 'FY3L6yEEvj34k256KDbYdJ'
+session_id = '5HZkQn3a4aEUZG4ST69ahk'
 
 # Debug Calls Start
-test = get_rand_pop_podcasts()
+# test = get_rand_pop_podcasts()
 # Debug Calls End
 
 
@@ -282,7 +282,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
         # logger.info(_("This is an untranslated message"))
 
-        speech = _("Welcome to iheartradio! What can iheart do for you?")
+        speech = _("What can iheart do for you?")
         handler_input.response_builder.speak(speech)
         handler_input.response_builder.ask(_(
             "What can iheart do for you?"))
@@ -444,6 +444,18 @@ class GetLocalStationsByCity(AbstractRequestHandler):
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
 
+class NewPodcast(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+        return (is_intent_name("NewPodcast")(handler_input))
+
+    def handle(self, handler_input):
+        logger.info("In NewPodcast")
+        podcasts = get_rand_pop_podcasts()
+        speech = "Search for " + podcasts[0]['title'] + " on I heart media. " + podcasts[0]['subtitle']
+        handler_input.response_builder.speak(speech)
+        return handler_input.response_builder.response
+
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for skill session end."""
@@ -493,12 +505,6 @@ class ExitIntentHandler(AbstractRequestHandler):
 
 
 class FallbackIntentHandler(AbstractRequestHandler):
-    """Handler for handling fallback intent or Yes/No without
-    restaurant info intent.
-
-     2018-May-01: AMAZON.FallackIntent is only currently available in
-     en-US locale. This handler will not be triggered except in that
-     locale, so it can be safely deployed for any locale."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         session_attr = handler_input.attributes_manager.session_attributes
@@ -561,6 +567,7 @@ sb.add_request_handler(GetFavoriteSong())
 sb.add_request_handler(GetFavoriteArtist())
 sb.add_request_handler(GetFavoriteAlbum())
 sb.add_request_handler(GetRecentSong())
+sb.add_request_handler(NewPodcast())
 sb.add_request_handler(GetLocalStationsByCity())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(FallbackIntentHandler())
@@ -569,6 +576,7 @@ sb.add_request_handler(SessionEndedRequestHandler())
 sb.add_request_handler(PlayHandler())
 sb.add_request_handler(StopHandler())
 sb.add_request_handler(PlayFavoriteGenre())
+
 
 # Add exception handler to the skill.
 sb.add_exception_handler(CatchAllExceptionHandler())
